@@ -1,0 +1,17 @@
+{
+  "demo": {
+    "url": "http://demo:8123/mcp",
+    "container": "mcp-gateway-demo",
+    "tools": [
+      {
+        "name": "echo",
+        "description": "Return a message unchanged.",
+        "parameters": {
+          "type": "object",
+          "properties": {"message": {"type": "string"}},
+          "required": ["message"]
+        }
+      }
+    ]
+  }
+}

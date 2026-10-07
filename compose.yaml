@@ -1,0 +1,21 @@
+services:
+  gateway:
+    build: .
+    ports:
+      - "127.0.0.1:8121:8121"
+    environment:
+      GATEWAY_HOST: "0.0.0.0"
+      GATEWAY_TOKEN: "${GATEWAY_TOKEN:?Generate .env first; see README}"
+      GATEWAY_MANIFEST: /app/manifest.json
+      GATEWAY_IDLE_TTL: "${GATEWAY_IDLE_TTL:-600}"
+      GATEWAY_START_TIMEOUT: "${GATEWAY_START_TIMEOUT:-45}"
+      GATEWAY_REAP_INTERVAL: "${GATEWAY_REAP_INTERVAL:-60}"
+    volumes:
+      - ./manifest.json:/app/manifest.json:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+  demo:
+    build: .
+    container_name: mcp-gateway-demo
+    command: ["python", "examples/demo_backend.py"]
+    restart: "no"

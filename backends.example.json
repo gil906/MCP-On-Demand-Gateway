@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "demo": {
+      "url": "http://demo:8123/mcp",
+      "container": "mcp-gateway-demo"
+    }
+  }
+}

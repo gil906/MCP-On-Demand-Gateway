@@ -1,0 +1,16 @@
+.git
+.env
+.env.*
+*.pem
+*.key
+*token*
+backends.json
+manifest.json
+manifest.json.tmp
+__pycache__
+*.py[cod]
+**/__pycache__
+**/*.py[cod]
+.venv
+logs
+*.log
